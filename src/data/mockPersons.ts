@@ -6,7 +6,7 @@ export interface Person {
 
 export const mockPersons: Person[] = [
   {
-    name: "Nikita Bazhkou",
+    name: "Nikita",
     email: "nikita@example.com"
   },
   {
