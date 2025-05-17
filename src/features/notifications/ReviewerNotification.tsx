@@ -495,7 +495,7 @@ export function ReviewerNotification() {
                         className="w-full p-2 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         value={overrideEmail}
                         onChange={(e) => updateOverrideEmail(e.target.value)}
-                        placeholder="your.email@example.com"
+                        placeholder="your.email@mailinator.com"
                     />
                 </div>
 

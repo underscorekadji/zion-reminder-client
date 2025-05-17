@@ -7,27 +7,27 @@ export interface Person {
 export const mockPersons: Person[] = [
   {
     name: "Nikita",
-    email: "nikita@example.com"
+    email: "nikita@mailinator.com"
   },
   {
     name: "Artsiom",
-    email: "artsiom@example.com"
+    email: "artsiom@mailinator.com"
   },
   {
     name: "Alexander",
-    email: "alexander@example.com"
+    email: "alexander@mailinator.com"
   },
   {
     name: "Dasha",
-    email: "dasha@example.com"
+    email: "dasha@mailinator.com"
   },
   {
     name: "Matsvei",
-    email: "matsvei@example.com"
+    email: "matsvei@mailinator.com"
   },
   {
     name: "Andrew",
-    email: "andrew@example.com"
+    email: "andrew@mailinator.com"
   }
 ];
 
