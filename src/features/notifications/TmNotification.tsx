@@ -9,16 +9,16 @@ import { mockPersons } from '../../data/mockPersons';
 const DEFAULT_PAYLOAD: TmNotificationPayload = {
   correlationId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   talentManager: {
+    email: mockPersons[3].email, // Dasha
+    name: mockPersons[3].name
+  },
+  talent: {
     email: mockPersons[0].email, // Nikita
     name: mockPersons[0].name
   },
-  talent: {
-    email: mockPersons[1].email, // Artsiom
-    name: mockPersons[1].name
-  },
   by: {
-    email: mockPersons[2].email, // Alexander
-    name: mockPersons[2].name
+    email: mockPersons[5].email, // Andrew
+    name: mockPersons[5].name
   },
   applicationLink: "https://performance.review.app/feedback/12345",
   startDate: "2025-05-17T07:25:43.306Z",
@@ -240,11 +240,10 @@ export function TmNotification() {
     }
   };
     return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">        <div>
+    <div className="space-y-6">      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">        <div>
           <PersonSelector 
             label="Talent Manager" 
-            initialPerson={mockPersons[0]} 
+            initialPerson={mockPersons[3]} 
             onPersonChange={updateTalentManager}
             overrideEmail={overrideEmail}
             isOverridden={!!overrideEmail}
@@ -256,7 +255,7 @@ export function TmNotification() {
         <div>
           <PersonSelector 
             label="Talent" 
-            initialPerson={mockPersons[1]} 
+            initialPerson={mockPersons[0]} 
             onPersonChange={updateTalent} 
           />
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -266,7 +265,7 @@ export function TmNotification() {
         <div>
           <PersonSelector 
             label="Requested By" 
-            initialPerson={mockPersons[2]} 
+            initialPerson={mockPersons[5]} 
             onPersonChange={updateBy} 
           />
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">

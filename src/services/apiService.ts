@@ -20,6 +20,25 @@ export interface TmNotificationPayload {
   endDate: string;
 }
 
+export interface ReviewerNotificationPayload {
+  correlationId: string;
+  requestedBy: {
+    email: string;
+    name: string;
+  };
+  requestedFor: {
+    email: string;
+    name: string;
+  };
+  reviewers: Array<{
+    email: string;
+    name: string;
+  }>;
+  attempt: number;
+  applicationLink: string;
+  endDate: string;
+}
+
 class ApiService {
   async getAuthToken(): Promise<TokenResponse> {
     try {
@@ -59,6 +78,28 @@ class ApiService {
       return await response.json();
     } catch (error) {
       console.error('Notification error:', error);
+      throw error;
+    }
+  }
+  
+  async sendToReviewer(payload: ReviewerNotificationPayload, token: string): Promise<any> {
+    try {
+      const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.SEND_TO_REVIEWER}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send feedback forms to Reviewers');
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Reviewer notification error:', error);
       throw error;
     }
   }

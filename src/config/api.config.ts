@@ -8,6 +8,7 @@ export const API_CONFIG = {
     : 'https://kxugm3udpe.eu-west-2.awsapprunner.com',
   ENDPOINTS: {
     AUTH_TOKEN: '/api/Auth/token',
-    SEND_TO_TM: '/api/Events/send-to-tm'
+    SEND_TO_TM: '/api/Events/send-to-tm',
+    SEND_TO_REVIEWER: '/api/Events/send-to-reviewer'
   }
 };

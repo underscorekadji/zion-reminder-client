@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { TmNotification } from './notifications/TmNotification';
+import { ReviewerNotification } from './notifications/ReviewerNotification';
 
 // Feature interface
 interface Feature {
@@ -23,7 +24,7 @@ export function Features() {
     {
       id: 2,
       name: "Send Feedback forms to Reviewers",
-      description: "Distribute feedback forms to reviewers for assessment of candidates, projects, or performance reviews."
+      description: "Distribute feedback forms to reviewers for performance reviews."
     },
     {
       id: 3,
@@ -79,6 +80,8 @@ export function Features() {
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">{feature.description}</p>
               <div className="border-t border-gray-200 dark:border-gray-700 pt-6 mt-6">              {feature.id === 1 ? (
                 <TmNotification />
+              ) : feature.id === 2 ? (
+                <ReviewerNotification />
               ) : (
                 <div>
                   <h3 className="text-lg font-medium mb-4 text-gray-700 dark:text-gray-300">Execute this action</h3>
