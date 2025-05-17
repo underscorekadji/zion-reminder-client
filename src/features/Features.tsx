@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { TmNotification } from './notifications/TmNotification';
 import { ReviewerNotification } from './notifications/ReviewerNotification';
 import { ReviewerFilled } from './notifications/ReviewerFilled';
+import { NotificationReportTab } from './notifications/NotificationReportTab';
 
 // Feature interface
 interface Feature {
@@ -84,16 +85,9 @@ export function Features() {
                 <ReviewerNotification />
               ) : feature.id === 3 ? (
                 <ReviewerFilled />
-              ) : (
-                <div>
-                  <h3 className="text-lg font-medium mb-4 text-gray-700 dark:text-gray-300">Execute this action</h3>
-                  <div className="flex">
-                    <button className="btn btn-primary">
-                      Execute
-                    </button>
-                  </div>
-                </div>
-              )}
+              ) : feature.id === 4 ? (
+                <NotificationReportTab />
+              ) : null}
             </div>
           </div>
         ))}
