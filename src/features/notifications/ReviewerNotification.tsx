@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { JsonEditor } from '../../components/JsonEditor';
 import { PersonSelector } from '../../components/PersonSelector';
 import { apiService } from '../../services/apiService';
