@@ -39,6 +39,22 @@ export interface ReviewerNotificationPayload {
   endDate: string;
 }
 
+export interface MarkReviewerFilledPayload {
+  correlationId: string;
+  requestedBy: {
+    email: string;
+    name: string;
+  };
+  reviewer: {
+    email: string;
+    name: string;
+  };
+  talent: {
+    email: string;
+    name: string;
+  };
+}
+
 class ApiService {
   async getAuthToken(): Promise<TokenResponse> {
     try {
@@ -100,6 +116,28 @@ class ApiService {
       return await response.json();
     } catch (error) {
       console.error('Reviewer notification error:', error);
+      throw error;
+    }
+  }
+
+  async markReviewerFilled(payload: MarkReviewerFilledPayload, token: string): Promise<any> {
+    try {
+      const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.MARK_REVIEWER_FILLED}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to mark reviewer as having submitted feedback');
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Mark reviewer filled error:', error);
       throw error;
     }
   }

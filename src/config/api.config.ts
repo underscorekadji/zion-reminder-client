@@ -9,6 +9,7 @@ export const API_CONFIG = {
   ENDPOINTS: {
     AUTH_TOKEN: '/api/Auth/token',
     SEND_TO_TM: '/api/Events/send-to-tm',
-    SEND_TO_REVIEWER: '/api/Events/send-to-reviewer'
+    SEND_TO_REVIEWER: '/api/Events/send-to-reviewer',
+    MARK_REVIEWER_FILLED: '/api/Events/send-to-reviewer'  // Same endpoint, but using DELETE method
   }
 };

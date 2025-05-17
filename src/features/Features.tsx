@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { TmNotification } from './notifications/TmNotification';
 import { ReviewerNotification } from './notifications/ReviewerNotification';
+import { ReviewerFilled } from './notifications/ReviewerFilled';
 
 // Feature interface
 interface Feature {
@@ -25,11 +26,10 @@ export function Features() {
       id: 2,
       name: "Send Feedback forms to Reviewers",
       description: "Distribute feedback forms to reviewers for performance reviews."
-    },
-    {
+    },    {
       id: 3,
       name: "Mark Reviewer as filled feedback",
-      description: "Update the system to indicate when a reviewer has completed and submitted their feedback form."
+      description: "Reviewer submitted feedback, disable notifications."
     },
     {
       id: 4,
@@ -82,6 +82,8 @@ export function Features() {
                 <TmNotification />
               ) : feature.id === 2 ? (
                 <ReviewerNotification />
+              ) : feature.id === 3 ? (
+                <ReviewerFilled />
               ) : (
                 <div>
                   <h3 className="text-lg font-medium mb-4 text-gray-700 dark:text-gray-300">Execute this action</h3>
